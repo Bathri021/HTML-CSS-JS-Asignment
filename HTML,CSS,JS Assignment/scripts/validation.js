@@ -11,6 +11,8 @@
 // The validation meathods are directly called from the html form
 // after there is change occurs in the input field
 
+var Status = false;
+
 // Validation for card number
 function validateCardNumber() {
   var x = document.getElementById("txt-cardnumber");
@@ -20,6 +22,7 @@ function validateCardNumber() {
       "Please enter valid card number.";
     x.value = null;
   } else {
+    Status = true;
     document.getElementById("error-cardnumber").innerHTML = "";
     document.getElementById("lbl-cardnumber").innerHTML = "";
   }
@@ -34,6 +37,7 @@ function validateSecurityCode() {
       "Please enter valid security code";
     x.value = null;
   } else {
+    Status = true;
     document.getElementById("error-securitycode").innerHTML = "";
     document.getElementById("lbl-securitycode").innerHTML = "";
   }
@@ -46,6 +50,7 @@ function validateExpiryMonth() {
     document.getElementById("error-expirydate").innerHTML =
       "Please select expiry date";
   } else {
+    Status = true;
     document.getElementById("error-expirydate").innerHTML = "";
     document.getElementById("lbl-expirydate").innerHTML = "";
   }
@@ -58,6 +63,7 @@ function validateExpiryYear() {
     document.getElementById("error-expirydate").innerHTML =
       "Please select expiry date";
   } else {
+    Status = true;
     document.getElementById("error-expirydate").innerHTML = "";
     document.getElementById("lbl-expirydate").innerHTML = "";
   }
@@ -71,6 +77,7 @@ function validateName() {
     document.getElementById("error-name").innerHTML = "Please enter valid name";
     x.value = null;
   } else {
+    Status = true;
     document.getElementById("error-name").innerHTML = "";
     document.getElementById("lbl-name").innerHTML = "";
   }
@@ -85,6 +92,7 @@ function validateAddress1() {
       "Please enter the valid address.";
     x.value = null;
   } else {
+    Status = true;
     document.getElementById("error-address1").innerHTML = "";
     document.getElementById("lbl-address1").innerHTML = "";
   }
@@ -99,6 +107,7 @@ function validateAddress2() {
       "Please enter the valid address.";
     x.value = null;
   } else {
+    Status = true;
     document.getElementById("error-address2").innerHTML = "";
     document.getElementById("error-address2").innerHTML = "";
   }
@@ -113,6 +122,7 @@ function validateAddress3() {
       "Please enter the valid address.";
     x.value = null;
   } else {
+    Status = true;
     document.getElementById("error-address3").innerHTML = "";
     document.getElementById("lbl-address3").innerHTML = "";
   }
@@ -127,6 +137,7 @@ function validateTown() {
       "Please enter valid Town/City name";
     x.value = null;
   } else {
+    Status = true;
     document.getElementById("error-town").innerHTML = "";
     document.getElementById("lbl-town").innerHTML = "";
   }
@@ -141,6 +152,7 @@ function validateRegion() {
       "Please enter valid Region";
     x.value = null;
   } else {
+    Status = true;
     document.getElementById("error-region").innerHTML = "";
     document.getElementById("lbl-region").innerHTML = "";
   }
@@ -155,6 +167,7 @@ function validateZipCode() {
       "Please enter valid zipcode.";
     x.value = null;
   } else {
+    Status = true;
     document.getElementById("error-zipcode").innerHTML = "";
     document.getElementById("lbl-zipcode").innerHTML = "";
   }
@@ -167,6 +180,7 @@ function validateCountry() {
     document.getElementById("error-country").innerHTML =
       "Please select country.";
   } else {
+    Status = true;
     document.getElementById("error-country").innerHTML = "";
     document.getElementById("lbl-country").innerHTML = "";
   }
@@ -182,6 +196,7 @@ function validatePhoneNo() {
       "Please enter valid telephone number.";
     x.value = null;
   } else {
+    Status = true;
     document.getElementById("error-telephoneno").innerHTML = "";
     document.getElementById("lbl-telephoneno").innerHTML = "";
   }
@@ -197,6 +212,7 @@ function validateFax() {
       "Please enter valid fax number";
     x.value = null;
   } else {
+    Status = true;
     document.getElementById("error-fax").innerHTML = "";
     document.getElementById("lbl-fax").innerHTML = "";
   }
@@ -213,6 +229,7 @@ function validateEmail() {
       "Please enter valid email address";
     x.value = null;
   } else {
+    Status = true;
     document.getElementById("error-mail").innerHTML = "";
     document.getElementById("lbl-mail").innerHTML = "";
   }
@@ -264,16 +281,22 @@ function submit() {
   if (month == 0) {
     document.getElementById("error-expirydate").innerHTML =
       "Please select month";
+    Status = false;
   }
   if (year == 0) {
     document.getElementById("error-expirydate").innerHTML =
       "Please select year";
+    Status = false;
   }
   if (country == 0) {
     document.getElementById("error-country").innerHTML =
       "Please select country";
-  } else {
+    Status = false;
+  }
+  if (Status) {
     alert("Payment Successfull");
     location.replace("Flower_Shop_Online.html");
+  } else {
+    alert("Payment Failed");
   }
 }
