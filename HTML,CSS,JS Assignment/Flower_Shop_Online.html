@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Flower Shop</title>
+   <link rel="stylesheet" href="styles/style.css">
+   <script src="scripts/validation.js"></script>
+</head>
+<body>
+  <div id="content">
+   <h1 id="title">Flower Shop Online</h1>
+   <div id="break"></div>
+   <div id="paymentpagecontent" class="flex">
+     <div class="row">
+           <div id="img" class="side">
+               <img src="Images/Flower-Main.png" alt="Flower image">
+            </div>
+            <div id="main-content" class="main">
+               <h2 id="title">Secure Payment Page</h2>
+              
+               <label for="language">Select Language</label>
+               <select>
+                  <option value="English">English</option>
+               </select>
+              
+               <div id="topcontent">
+                 <table>
+                 <tr>
+                    <td>
+                     <table>
+                        <tr>
+                           <td>Payment method</td>
+                           <td class="bold">Visa</td>
+                        </tr>
+                        <tr>
+                           <td>Description</td>
+                           <td class="bold">Item ordered</td>
+                        </tr>
+                        <tr>
+                           <td>Amount</td>
+                           <td class="bold">&euro;100.00</td>
+                        </tr>
+                     </table>
+                    </td>
+                    <td>
+                       <div id="img">
+                          <img id="visaImg" src="images/Visa-logo.png" alt="Visa-Logo-PNG">
+                       </div>
+                    </td>
+                 </tr>
+                 </table>
+               </div>
+               <br/>
+              <div class="form-content">
+               <div class="form">
+                  <form>
+                      <div id="cardcontent">
+                            <h3 id="subtitle">Card details</h3>
+                            <p>You must fill in fields marked with *</p>
+                            <table>
+                               <tr>
+                                  <td><label for="cardnumber">*&nbsp;Card&nbsp;number</label><span id="lbl-cardnumber"><br><br/></span></td>
+                                  <td>
+                                     <input type="text" class="txt" id="txt-cardnumber" onchange="validateCardNumber()" required>
+                                     <span id="error-cardnumber" class="error-message"> &nbsp; </span>
+                                    </td>
+                               </tr>
+                               <tr>
+                                  <td><label for="securitycode">*&nbsp;Security&nbsp;code</label><span id="lbl-securitycode"><br><br/></span></td>
+                                  <td>
+                                     <input type="password"  class="txt" id="txt-securitycode" onchange="validateSecurityCode()" required><br/>
+                                     <span id="error-securitycode" class="error-message">&nbsp;<br/></span>
+                                 </td>
+                               </tr>
+                               <tr>
+                                  <td><label for="expirydate">*&nbsp;Expiry&nbsp;date</label><span id="lbl-expirydate"><br></br></span></td>
+                                  <td>
+                                     <select name="expirydate-month" id="month" onchange="validateExpiryMonth()" required="true">
+                                        <option value=""> </option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                     </select>
+                                 
+                                      <select name="expirydata-year" id="year" onchange="validateExpiryYear()" required="true">
+                                         <option value=""> </option>
+                                         <option value="20">2020</option> 
+                                         <option value="21">2021</option> 
+                                         <option value="22">2022</option> 
+                                         <option value="23">2023</option> 
+                                         <option value="24">2024</option> 
+                                      </select><br/>
+                                      <span id="error-expirydate" class="error-message"><br/></span>
+                                   </td>
+                               </tr>
+                               <tr>
+                                  <td><label for="cardholdername">*&nbsp;Cardholders&nbsp;name</label><span id="lbl-cardnumber"><br><br/></span></td>
+                                  <td>
+                                     <input type="text" class="txt" id="txt-name" onchange="validateName()" required>
+                                    <span id="error-name" class="error-message">&nbsp; <br/></span>
+                                 </td>
+                               </tr>
+                            </table>
+                         </div>
+                         <div id="cardholdercontent">
+                            <h3 id="subtitle">Cardholder details</h3>
+                            <p>You must fill in fields marked with *</p>
+                            <table>
+                               <tr>
+                                  <td><label for="adderss1">*&nbsp;Address 1</label><span id="lbl-address1"><br><br/></span></td>
+                                 <td>
+                                  <input type="text" class="txt" id="txt-address1" onchange="validateAddress1()" required>
+                                  <span id="error-address1" class="error-message"></br></span>
+                                  </td>
+                               </tr>
+                               <tr>
+                                  <td><label for="adderss2">&nbsp;&nbsp;Address 2</label><span id="lbl-address2"><br><br/></span></td>
+                                  <td>
+                                     <input type="text" class="txt" id="txt-address2" onchange="validateAddress2()">
+                                     <span id="error-address2" class="error-message"><br/></span>
+                                 </td>
+                               </tr>
+                               <tr>
+                                  <td><label for="adderss22">&nbsp;&nbsp;Address 3</label><span id="lbl-address3"><br><br/></span></td>
+                                  <td>
+                                     <input type="text" class="txt" id="txt-address3" onchange="validateAddress3()">
+                                     <span id="error-address3" class="error-message"><br/></span>
+                                 </td>
+                               </tr>
+                               <tr>
+                                  <td><label for="towncity">*&nbsp;Town/City</label><span id="lbl-town"><br><br/></span></td>
+                                  <td>
+                                     <input type="text" class="txt" id="txt-town" onchange="validateTown()" required>
+                                     <span id="error-town" class="error-message"><br/></span>
+                                 </td>
+                               </tr>
+                               <tr>
+                                  <td><label for="region">&nbsp;&nbsp;Region</label><span id="lbl-region"><br><br/></span></td>
+                                  <td>
+                                     <input type="text" class="txt" id="txt-region" onchange="validateRegion()">
+                                    <span id="error-region" class="error-message"><br/></span>
+                                 </td>
+                               </tr>
+                               <tr>
+                                  <td><label for="postcode">*&nbsp;Postcode/Zip&nbsp;code</label><span id="lbl-zipcode"><br><br/></span></td>
+                                  <td>
+                                     <input type="text"class="txt" id="txt-zipcode" onchange="validateZipCode()" required><br/>
+                                    <span id="error-zipcode" class="error-message"><br/></span>
+                                 </td>
+                               </tr>
+                               <tr>
+                                  <td><label for="country">*&nbsp;Country</label><span id="lbl-country"><br><br/></span></td>
+                                  <td>
+                                     <select name="country" id="country" onchange="validateCountry()" required>
+                                        <option value=""></option>
+                                        <option value="India">India</option>
+                                        <option value="India">United States</option>
+                                        <option value="India">France</option>
+                                        <option value="India">Germany</option>
+                                        <option value="India">Russia</option>
+                                     </select><br/>
+                                     <span id="error-country" class="error-message"><br/></span>
+                                  </td>
+                               </tr>
+                               <tr>
+                                  <td><label for="telephone">&nbsp;&nbsp;Telephone</label><span id="lbl-telephoneno"><br><br/></span></td>
+                                  <td>
+                                     <input type="text" class="txt" id="txt-telephone" onchange="validatePhoneNo()"><br/>
+                                     <span id="error-telephoneno" class="error-message"><br/></span>
+                                 </td>
+                               </tr>
+                               <tr>
+                                  <td><label for="fax">&nbsp;&nbsp;Fax</label><span id="lbl-fax"><br><br/></span></td>
+                                  <td>
+                                     <input type="text" class="txt" id="txt-fax"  onchange="validateFax()"><br/>
+                                    <span id="error-fax" class="error-message"><br/></span>
+                                 </td>
+                               </tr>
+                               <tr>
+                                  <td><label for="email">*&nbsp;Email&nbsp;address</label><span id="lbl-mail"><br><br/></span></td>
+                                  <td>
+                                     <input type="text" class="txt" id="txt-email" onchange="validateEmail()" required>
+                                    <span id="error-mail" class="error-message"><br/></span>
+                                 </td>
+                               </tr>
+                            </table>
+                         </div>
+                  </form>
+               </div>
+               <div class="question">
+                  <img src="images/Question.png" class="question" id="question1" alt="?">
+                  <img src="images/Question.png" class="question" id="question2" alt="?">
+               </div>
+              </div>
+              <div class="links">
+                <div class="bottomlink"><img class="bottom-img" onclick="" src="images/Start again.png" alt=""><a href="Flower_Shop_Online.html">START AGAIN</a></div>
+                <br/>
+                <div class="bottomlink-rignt" onclick="submit()"> <a href="#" id="makepayment">MAKE PAYMENT</a><img class="bottom-img-right" src="images/Flower-Small.png" alt=""></div>
+                <br/>
+                 <div class="bottomlink" onclick="cancel()"><img class="bottom-img" src="images/Start again.png" alt=""> <a href="Flower_Shop_Online.html" onclick="">CANCEL</a></div>
+              </div>
+               <div id="line"></div>
+              <div class="bottom-content">
+               <h2 class="bottom-content">Refunds and Returns</h2>
+               <p class="bottom-content">For more information visit our <a href="#">Refunds and Returns Policy</a></p>
+               <div id="contentbottom">
+                 <table>
+                    <tr>
+                       <td> <img class="worldpay-img" src="images/Worldpay-logo.jpg" alt=""></td>
+                       <td><p class="bottom-content">For help with your payments visit the <a href="#">WorldPay Help</a></p></td>
+                    </tr>
+                 </table>
+               </div>
+              </div>
+     </div>
+   </div>
+   <div id="footer">
+      <h2>Thank you for shopping at Flowershop. Have a nice day</h2>
+   </div>
+  </div>
+</body>
+</html>
